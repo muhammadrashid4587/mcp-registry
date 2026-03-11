@@ -1,0 +1,32 @@
+{
+  "name": "mcp-registry",
+  "version": "1.0.0",
+  "description": "Discovery and health monitoring service for MCP servers",
+  "main": "dist/index.js",
+  "bin": {
+    "mcp-registry": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "registry",
+    "discovery",
+    "health-monitoring"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
