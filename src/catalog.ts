@@ -130,6 +130,7 @@ export class Catalog {
     totalServers: number;
     healthy: number;
     unhealthy: number;
+    degraded: number;
     unknown: number;
     totalTools: number;
     totalResources: number;
@@ -139,6 +140,7 @@ export class Catalog {
       totalServers: servers.length,
       healthy: servers.filter((s) => s.health === "healthy").length,
       unhealthy: servers.filter((s) => s.health === "unhealthy").length,
+      degraded: servers.filter((s) => s.health === "degraded").length,
       unknown: servers.filter((s) => s.health === "unknown").length,
       totalTools: this.allToolNames().length,
       totalResources: this.allResourceUris().length,

@@ -190,10 +190,24 @@ describe("Catalog", () => {
         totalServers: 3,
         healthy: 2,
         unhealthy: 1,
+        degraded: 0,
         unknown: 0,
         totalTools: 4,
         totalResources: 2,
       });
+    });
+
+    it("counts degraded servers", () => {
+      registry.register({
+        name: "slow-server",
+        command: "node",
+        capabilities: { tools: [], resources: [] },
+      });
+      registry.updateServer("slow-server", { health: "degraded" });
+
+      const stats = catalog.summary();
+      expect(stats.totalServers).toBe(4);
+      expect(stats.degraded).toBe(1);
     });
   });
 });
